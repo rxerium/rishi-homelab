@@ -1,0 +1,19 @@
+version: "2.1"
+services:
+  plex:
+    image: linuxserver/plex:latest
+    container_name: Plex-Server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+    ports:
+      - "32400:32400"
+
+    volumes:
+      - /media/PlexServer:/config
+      - /media/PlexServer/TV-Shows:/TV-Shows
+      - /media/PlexServer/Movies:/Movies
+      - /media/PlexServer/Music:/Music
+
+    restart: unless-stopped
