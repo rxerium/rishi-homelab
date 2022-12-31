@@ -5,7 +5,9 @@ services:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
     volumes:
-      - ./uptime-kuma-data:/app/data
+      - /root/Docker/uptime-kuma:/app/data
+      
     ports:
       - 3001:3001
+
     restart: always
