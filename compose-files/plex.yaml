@@ -2,7 +2,7 @@ version: "2.1"
 services:
   plex:
     image: linuxserver/plex:latest
-    container_name: Plex-Server
+    container_name: plex
     environment:
       - PUID=1000
       - PGID=1000
