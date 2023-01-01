@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "80:80/tcp"
+    environment:
+      TZ: 'Europe/London'
+
+    volumes:
+      - '/root/Docker/data/pihole:/etc/pihole'
+      - '/root/Docker/data/pihole/dns-data:/etc/dnsmasq.d'
+
+    restart: unless-stopped

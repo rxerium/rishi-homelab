@@ -5,10 +5,12 @@ services:
     container_name: tautulli-plex
     restart: unless-stopped
     volumes:
-      - /root/Docker/tautulli:/config
+      - /root/Docker/data/tautulli:/config
+
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
+
     ports:
       - 8181:8181
