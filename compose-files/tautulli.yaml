@@ -4,6 +4,7 @@ services:
     image: ghcr.io/tautulli/tautulli
     container_name: tautulli-plex
     restart: unless-stopped
+    
     volumes:
       - /root/Docker/data/tautulli:/config
 

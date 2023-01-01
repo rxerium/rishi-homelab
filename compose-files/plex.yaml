@@ -7,6 +7,7 @@ services:
       - PUID=1000
       - PGID=1000
       - VERSION=docker
+      
     ports:
       - "32400:32400"
 

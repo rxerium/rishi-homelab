@@ -1,7 +1,7 @@
 version: '3'
 
 volumes:
-  grafana-data:
+  grafana:
     driver: local
 
 services:
