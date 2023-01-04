@@ -13,5 +13,7 @@ services:
       - '9443:9443'
       - '8000:8000'
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /root/Docker/data/portainer:/data
+      - ./docker.sock:/var/run/docker.sock
+      - ./portainer-data:/data
+    
+    restart: unless-stopped

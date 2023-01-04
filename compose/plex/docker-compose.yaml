@@ -12,9 +12,8 @@ services:
       - "32400:32400"
 
     volumes:
-      - /root/Docker/data/plex:/config
-      - /root/Docker/data/plex/TV-Shows:/TV-Shows
-      - /root/Docker/data/plex/Movies:/Movies
-      - /root/Docker/data/plex/Music:/Music
+      - ./config:/config
+      - /media/TV-Shows:/TV-Shows
+      - /media/Movies:/Movies
 
     restart: unless-stopped

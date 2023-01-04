@@ -9,8 +9,8 @@ services:
     image: grafana/grafana-oss:latest
     container_name: grafana
     ports:
-      - "3000:3000"
+      - "3003:3000"
     volumes:
-      - /root/Docker/data/grafana:/var/lib/grafana
+      - ./grafana-data:/var/lib/grafana
       
     restart: unless-stopped

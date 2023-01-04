@@ -14,7 +14,7 @@ services:
       TZ: 'Europe/London'
 
     volumes:
-      - '/root/Docker/data/pihole:/etc/pihole'
-      - '/root/Docker/data/pihole/dns-data:/etc/dnsmasq.d'
+      - './koel-data:/etc/pihole'
+      - './dns-data:/etc/dnsmasq.d'
 
     restart: unless-stopped

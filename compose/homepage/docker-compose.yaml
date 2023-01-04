@@ -5,7 +5,9 @@ services:
     container_name: homepage
 
     ports:
-      - 3002:3000
+      - 3000:3000
       
     volumes:
-      - /root/Docker/data/homepage:/app/config 
+      - ./homepage-data:/app/config 
+
+    restart: unless-stopped

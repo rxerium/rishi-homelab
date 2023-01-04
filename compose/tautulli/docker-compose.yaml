@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     
     volumes:
-      - /root/Docker/data/tautulli:/config
+      - ./tautulli-data:/config
 
     environment:
       - PUID=1000
@@ -15,3 +15,5 @@ services:
 
     ports:
       - 8181:8181
+      
+    restart: unless-stopped
