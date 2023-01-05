@@ -11,3 +11,5 @@ services:
       - ./homepage-data:/app/config 
 
     restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true

@@ -18,3 +18,5 @@ services:
       - './dns-data:/etc/dnsmasq.d'
 
     restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true

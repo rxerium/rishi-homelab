@@ -17,3 +17,5 @@ services:
       - /media/Movies:/Movies
 
     restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true

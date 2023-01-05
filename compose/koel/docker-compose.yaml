@@ -3,6 +3,7 @@ version: '3'
 services:
   koel:
     image: phanan/koel
+    container_name: koel
     depends_on:
       - database
     ports:
@@ -19,9 +20,12 @@ services:
       - ./search_index:/var/www/html/storage/search-indexes
       
     restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
 
   database:
     image: mysql/mysql-server:5.7
+    container_name: koel-db
     volumes:
       - db:/var/lib/mysql
     environment:
@@ -31,6 +35,8 @@ services:
       - MYSQL_PASSWORD=8ZN3RvbaH@EyzS6ZZ8C#meBDvE624N
 
     restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
 
 volumes:
   db:
