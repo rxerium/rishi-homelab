@@ -1,0 +1,26 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/en/configs/widgets
+
+- resources:
+    cpu: true
+    memory: true
+    disk: /
+
+- search:
+    provider: google
+    target: _blank
+
+- datetime:
+    text_size: l
+    format:
+      timeStyle: short
+      hour12: true
+
+- weatherapi:
+    label: London # optional
+    latitude: 51.6177
+    longitude: 0.3115
+    units: metric # or imperial
+    apiKey: 
+    cache: 5 # Time in minutes to cache API responses, to stay within limits

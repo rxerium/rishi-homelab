@@ -1,0 +1,75 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/en/configs/services
+
+- 🎧 Entertainment:
+    - Plex Media:
+        href: http://185.249.225.133:32400
+        ping: https://185.249.225.133:32400
+        description: Movie and TV Show Streaming
+        icon: plex-new.png
+        widget:
+          type: plex
+          url: https://185.249.225.133:32400
+          key: 
+
+    - Koel:
+        href: http://185.249.225.133:90
+        ping: http://185.249.225.133:90
+        description: Music Streaming
+        icon: koel.png
+
+- 📈 Monitoring:
+    - Uptime Kuma:
+        href: http://185.249.225.133:3001
+        ping: http://185.249.225.133:3001
+        description: Monitoring uptime of websites and servers
+        icon: uptime-kuma.png
+        container: Uptime-Kuma
+    
+    - Grafana:
+        href: http://185.249.225.133:3005
+        ping: http://185.249.225.133:3005
+        description: Monitor server stats
+        icon: grafana.png
+
+    - Prometheus:
+        href: http://185.249.225.133:3005
+        ping: http://185.249.225.133:3005
+        description: Server stat collection
+        icon: prometheus.png
+
+- 💻 Management:
+    - Portainer:
+        href: http://185.249.225.133:9443
+        ping: http://185.249.225.133:9443
+        description: Docker Container Management
+        icon: portainer.png
+
+    - WatchTower:
+        href: http://185.249.225.133:8080
+        ping: http://185.249.225.133:8080
+        description: Docker Container Backups
+        icon: watchtower.png
+
+    - Unifi Controller:
+        href: http://10.0.0.1
+        ping: http://10.0.0.1
+        description: Unifi Controller Admin
+        icon: unifi-controller.png
+        widget:
+          type: unifi
+          url: https://10.0.0.1
+          username: username
+          password: password
+    
+
+- ⚙️ Clients:
+    - ALPH4:
+       href: https://alph4.xyz
+       ping: https://alph4.xyz
+
+    - lrunners:
+       href: https://lrunners.co.uk
+       ping: https://lrunners.co.uk
+      
