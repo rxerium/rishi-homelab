@@ -3,7 +3,7 @@
 # Author: Rishi
 #
 # Description:
-# This script is designed to create incremental backups of a folder.
+# This script is designed to create incremental backups of a folder then log the output in a file.
 # --------------------------------------------------
 
 BACKUP_DIR="/root/HomeLab"
@@ -16,4 +16,4 @@ CURRENT_DATE=$(date +%Y-%m-%d_%H-%M-%S)
 
 tar -czvf "$DESTINATION/$BASE_NAME-$CURRENT_DATE.tar.gz" --listed-incremental="$DESTINATION/snapshot.snar" "$BACKUP_DIR"
 
-echo "Incremental backup of $BACKUP_DIR completed on $CURRENT_DATE"
+echo "Incremental backup of $BACKUP_DIR completed on $CURRENT_DATE" >> /root/docker-backups/log.txt

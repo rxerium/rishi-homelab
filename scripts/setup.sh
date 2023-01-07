@@ -9,7 +9,14 @@
 # 3. Update script permissions to be executable
 # 4. SSH Authentication management
 # 5. Set MOTD
+# Checks if Python3 is installed and installs it if it isnt
+# Updates the server
 # --------------------------------------------------
+
+# Updates
+
+sudo apt-get update
+sudo apt-get upgrade -y
 
 # SSH Configuration
 echo "SSH configuration starting..."
@@ -34,6 +41,16 @@ cd /etc/ssh && sed -i 's/#   PasswordAuthentication yes/    PasswordAuthenticati
 sed -i 's#Include /etc/ssh/ssh_config\.d/\*\.conf##g' ssh_config && sed -i 's#Include /etc/ssh/sshd_config\.d/\*\.conf##g' sshd_config
 echo "Password Authentication Disabled"
 sudo systemctl restart ssh
+
+# Python3 Install
+
+if ! command -v python3 &> /dev/null
+then
+    sudo apt-get install python3
+else
+    echo "Python3 is already installed"
+fi
+
 
 # MOTD
 
