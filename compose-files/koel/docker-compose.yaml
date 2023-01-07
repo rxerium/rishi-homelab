@@ -15,7 +15,7 @@ services:
       - DB_PASSWORD=8ZN3RvbaH@EyzS6ZZ8C#meBDvE624N
       - DB_DATABASE=koel
     volumes:
-      - /media/music:/music
+      - /media/Music:/music
       - ./covers:/var/www/html/public/img/covers
       - ./search_index:/var/www/html/storage/search-indexes
       
