@@ -2,11 +2,11 @@
 
 The purpose of this repo is to document my journey and the processes I use through building my homelab and eventually turing it into a datacenter! This is a side project I actively maintain in my free time mostly in evenings or over weekends. 
 
-# Servers
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hammer%20and%20Wrench.png" alt="Hammer and Wrench" width="25" height="25" /> Servers
 
 At present, I have 2 servers both of which I built from ordering the below parts:
 
-## Server 1 - Proxmox Node
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pager.png" alt="Pager" width="25" height="25" /> Server 1 - Proxmox Node
 - CPU: Ryzen 5 4600G 
 - RAM: 48GB 3200mhz (32 + 16)
 - PSU: 600W EVGA
@@ -16,7 +16,7 @@ At present, I have 2 servers both of which I built from ordering the below parts
   - Any media such as films/music/games will be stored on my NAS through SMB shares
 - Chassis: 3U Case
 
-## Server 2 - TrueNAS Scale 
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pager.png" alt="Pager" width="25" height="25" /> Server 2 - TrueNAS Scale 
 - CPU: Ryzen 5 2600 
 - RAM: Corsair Vengence 16GB 3200mhz (8 + 8)
 - PSU: 700W Aerocool
@@ -27,7 +27,7 @@ At present, I have 2 servers both of which I built from ordering the below parts
 
 All equipment sits in a 12U 19" rack all of which is cable managed using cable ties.
 
-# Networking
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Wireless.png" alt="Wireless" width="25" height="25" /> Networking
 
 ## Hardware
 
@@ -36,7 +36,9 @@ All equipment sits in a 12U 19" rack all of which is cable managed using cable t
 - Standard ISP provided modem (in bridge mode)
 - CAT 6 ethernet throughout
 
-Note: I have assigned a "Trunk Port" to the Proxmox Server to allow for putting LXCs on other VLANs, this is esspecially useful when exposing services to the public and following the "Zero Trust" security model. 
+Notes: 
+- I have assigned a "Trunk Port" to the Proxmox Server to allow for putting LXCs on other VLANs, this is esspecially useful when exposing services to the public and following the "Zero Trust" security model. 
+- Acess Points are connected using `wireless uplinking`.
 
 
 ## Software
@@ -100,7 +102,9 @@ When choosing my firewall I wanted to ensure it supports an IDS or an IPS due to
   - SNMP
   - VOIP 
 
-While setting to the highest sensitivity I have not noticed any distruptions of services in my homelab! Further to my IPS I have enabled geo based blocking. 
+While setting to the highest sensitivity I have fortunately not noticed any distruptions of services in my homelab! Further to enforcing an IPS I have enabled geo based blocking. 
+
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Locked.png" alt="Locked" width="25" height="25" />   Security 
 
 ## Nginx Proxy Manager
 
@@ -129,13 +133,30 @@ To ensure all containers are up to date across my homelab I use a service called
 
 When it comes to configuring Nginx PM I would give a service its own subdomain under my domain, for example, `ansible` would be `ansible.alph4.xyz`, with my domain being mamaged on Cloudflare it was quite easy to configure. I setup an A record (DNS only - reserved IP) with the IP of my LXC container as well as creating an API key. With this, the configuration was quite easy when it came to the Nginx dashboard. 
 
+![Alt text](/archive/images/image.png)
+
 Nginx Proxy Manager also allowed me to request new SSL certificates for each of the services I am running, this prevents any password sniffing over the network. 
 
+![Alt text](/archive/images/image3.png)
 
-## Authelia
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Old%20Key.png" alt="Old Key" width="25" height="25" /> Authelia
 
-To further enhance the security of my network and services I run I have incorporated [Authelia](https://www.authelia.com/) which allows me to setup MFA for any services that have web portals. 
+To further enhance the security of my network and services I run I have incorporated [Authelia](https://www.authelia.com/) which allows me to setup MFA for any services that have web portals.
 
+Configuration for Authelia is done through Nginx Proxy Manager and I have attached the config I use i nthe `docker-compose-files/autelia/` directory in this repo. 
 
+![Alt text](/archive/images/image2.png)
 
-This Readme is still a WIP...
+---
+
+**THIS README IS STILL A WORK IN PROGRESS**
+
+Things to add to this readme:
+- Orchestration software I use for automation
+- Useful services I rely on
+- Monitoring of servers/containers/VMs
+- A brief look at my incident response plan if I were breached
+- Future projects/ideas I have planned
+- Costs to run each month
+- How I document everything
+- Internet speeds, traffic routing and proxying
