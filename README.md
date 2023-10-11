@@ -38,7 +38,7 @@ All equipment sits in a 12U 19" rack all of which is cable managed using cable t
 
 Notes: 
 - I have assigned a "Trunk Port" to the Proxmox Server to allow for putting LXCs on other VLANs, this is esspecially useful when exposing services to the public and following the "Zero Trust" security model. 
-- Acess Points are connected using `wireless uplinking`.
+- 1 access point is connected via ethernet and the other is connected using `wireless uplinking`.
 
 
 ## Software
