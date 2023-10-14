@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: homeassistant
+    restart: unless-stopped
+    privileged: true
+    environment:
+      TZ: Europe/London
+    volumes:
+      - /root/home-assistant:/config
+    networks:
+      - host
+
+networks:
+  host:
+    external: true

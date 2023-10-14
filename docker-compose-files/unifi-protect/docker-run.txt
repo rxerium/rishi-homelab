@@ -1,0 +1,10 @@
+docker run \
+  -e UFP_USERNAME='Protect' \
+  -e UFP_PASSWORD='PASSWORD' \
+  -e UFP_ADDRESS='10.0.0.1' \
+  -e UFP_SSL_VERIFY='false' \
+  -e SKIP_MISSING='true' \
+  -e RCLONE_RETENTION='1y' \
+  -v '/mnt/UnifiProtect':'/data' \
+  -v '/UnifiProtect':/config/database/ \
+  ghcr.io/ep1cman/unifi-protect-backup
