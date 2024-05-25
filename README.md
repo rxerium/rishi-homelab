@@ -120,11 +120,11 @@ Configuration for Authelia is done through Nginx Proxy Manager and I have attach
 **THIS README IS STILL A WORK IN PROGRESS**
 
 Things to add to this readme:
-- Orchestration software I use for automation
-- Useful services I rely on
-- Monitoring of servers/containers/VMs
-- A brief look at my incident response plan if I were breached
-- Future projects/ideas I have planned
-- Costs to run each month
-- How I document everything
-- Internet speeds, traffic routing and proxying
+- [ ] Orchestration software I use for automation
+- [ ] Useful services I rely on
+- [ ] Monitoring of servers/containers/VMs
+- [ ] A brief look at my incident response plan if I were breached
+- [ ] Future projects/ideas I have planned
+- [ ] Costs to run each month
+- [ ] How I document everything
+- [ ] Internet speeds, traffic routing and proxying
