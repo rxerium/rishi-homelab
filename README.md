@@ -68,39 +68,7 @@ When it comes to my cameras, I have setup a separate VLAN for this on the `.20` 
 
 When choosing my firewall I wanted to ensure it supports an IDS or an IPS due to the services I'll be running and exposing. Currently I have enabled and set my IPS to the highest sensitivity available so it will detect and block the following:
 
-- Virus and malware
-  - Botcc
-  - Worm
-  - Trojan
-  - Malware
-  - Mobile Malware
-- P2P
-  - TOR
-  - P2P
-- Hacking
-  - Exploits
-  - Attack response
-  - Scans
-  - Shellcode
-  - DoS
-- Internet Traffic
-  - SQL
-  - User agents
-  - DNS
-- IPs with bad repuation
-  - CI Army
-  - Comprimsed
-  - DSheild
-- Network protocol
-  - FTP
-  - IMAP
-  - SMTP
-  - POP3
-  - ICMP
-  - TELNET
-- Advanced Protocol
-  - SNMP
-  - VOIP 
+![Alt text](/archive/images/ips.png)
 
 While setting to the highest sensitivity I have fortunately not noticed any distruptions of services in my homelab! Further to enforcing an IPS I have enabled geo based blocking. 
 
@@ -133,17 +101,17 @@ To ensure all containers are up to date across my homelab I use a service called
 
 When it comes to configuring Nginx PM I would give a service its own subdomain under my domain, for example, `ansible` would be `ansible.alph4.xyz`, with my domain being mamaged on Cloudflare it was quite easy to configure. I setup an A record (DNS only - reserved IP) with the IP of my LXC container as well as creating an API key. With this, the configuration was quite easy when it came to the Nginx dashboard. 
 
-![Alt text](/archive/images/image.png)
+![Alt text](/archive/images/nginxpm.png)
 
 Nginx Proxy Manager also allowed me to request new SSL certificates for each of the services I am running, this prevents any password sniffing over the network. 
 
-![Alt text](/archive/images/image3.png)
+![Alt text](/archive/images/ssl.png)
 
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Old%20Key.png" alt="Old Key" width="25" height="25" /> Authelia
 
 To further enhance the security of my network and services I run I have incorporated [Authelia](https://www.authelia.com/) which allows me to setup MFA for any services that have web portals.
 
-Configuration for Authelia is done through Nginx Proxy Manager and I have attached the config I use i nthe `docker-compose-files/autelia/` directory in this repo. 
+Configuration for Authelia is done through Nginx Proxy Manager and I have attached the config I use in the `docker-compose-files/authelia/` directory of this repo. 
 
 ![Alt text](/archive/images/image2.png)
 
