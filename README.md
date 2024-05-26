@@ -21,7 +21,7 @@ At present, I have 2 servers both of which I built from ordering the below parts
 - RAM: Corsair Vengence 16GB 3200mhz (8 + 8)
 - PSU: 700W Aerocool
 - Mobo: Gigabyte B450M DS3H
-- Storage: 512GB M.2+ x2 4TB SSD
+- Storage: 512GB M.2 + x4 4TB SSD (RAID 1 array)
   - The OS is installed on the M.2 and both 4TB SSDs are used in a RAID 1 Array for the NAS
 - Chassis: 2U Case
 
@@ -103,7 +103,7 @@ When it comes to configuring Nginx PM I would give a service its own subdomain u
 
 ![Alt text](/archive/images/nginxpm.png)
 
-Nginx Proxy Manager also allowed me to request new SSL certificates for each of the services I am running, this prevents any password sniffing over the network. 
+Nginx Proxy Manager also allows me to request new SSL certificates for each of the services I am running, this prevents any password sniffing over the network as traffic is all encrypted.
 
 ![Alt text](/archive/images/ssl.png)
 
@@ -115,16 +115,37 @@ Configuration for Authelia is done through Nginx Proxy Manager and I have attach
 
 ![Alt text](/archive/images/image2.png)
 
+# Automation through Ansible
+
+I utilise Ansible as one of the main tools for automation in my homelab. I've created a number of scripts [here](https://github.com/rxerium/ansible) that I use to streamline tasks, such as provisioning servers or configuring containers. For instance, when creating a new LXC container in my Proxmox cluster, I like to follow security best practices by running an Ansible script that configures SSH keys and disables password authentication. This ensures that my containers are secure from the outset.
+
+![Alt text](/archive/images/ansible-tasks.png)
+
+
+Ansible Semaphore relies on an inventory of hosts (host list) to determine which scripts to run on. To populate this inventory, I've created a [GitHub Action script](https://github.com/rxerium/ansible/blob/main/.github/workflows/online-hosts.yaml) that scans for online hosts on the 10.0.30.0/24 subnet in my infrastructure and outputs the results to a file. This file is then read by Ansible to determine which hosts are available for automation. The script runs on a weekly basis, ensuring that my inventory stays up-to-date and accurate.
+
+![Alt text](/archive/images/ansible-dash.png)
+
+Ansible has revolutionised my homelab by enabling me to automate routine tasks, freeing up time for other projects. With Ansible, I can quickly deploy and manage multiple nodes, ensure consistent configurations across my infrastructure, and even orchestrate complex workflows. Additionally, Ansible's agentless architecture means I don't need to install additional software on each server/VM/CT, making it a lightweight and highly effective automation solution that has greatly simplified my homelab management.
+
 ---
 
 **THIS README IS STILL A WORK IN PROGRESS**
 
 Things to add to this readme:
-- [ ] Orchestration software I use for automation
-- [ ] Useful services I rely on
+- [x] Networking
+  - [ ] Internet speeds
+  - [ ] Traffic routing and proxying 
+- [x] Hardware
+- [x] Software running on bare metal
+- [x] Proxy Manager
+- [x] Web app authentication
+- [x] Orchestration software I use for automation
+- [ ] AI and local LLMs
 - [ ] Monitoring of servers/containers/VMs
-- [ ] A brief look at my incident response plan if I were breached
-- [ ] Future projects/ideas I have planned
-- [ ] Costs to run each month
-- [ ] How I document everything
-- [ ] Internet speeds, traffic routing and proxying
+- [ ] Incident Response
+- [ ] Admin
+  - [ ] Costs & aintenance
+  - [ ] Documentation
+  - [ ] Task / project management
+- [ ] Future projects/ideas
