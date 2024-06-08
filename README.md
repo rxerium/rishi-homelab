@@ -2,6 +2,8 @@
 
 The purpose of this repo is to document my journey and the processes I use through building my homelab and eventually turing it into a datacenter! This is a side project I actively maintain in my free time mostly in evenings or over weekends. 
 
+![Alt text](/archive/images/homelab.png)
+
 # <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hammer%20and%20Wrench.png" alt="Hammer and Wrench" width="25" height="25" /> Servers
 
 At present, I have 2 servers both of which I built from ordering the below parts:
